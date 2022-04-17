@@ -24,7 +24,6 @@ class HomeViewController: BaseViewController {
     //MARK: - Variables
     var router: HomeScreenRouter?
     let viewModel = HomeScreenViewModel()
-    //var listOfRockets: [Rockets] = []
     var listOfProducts: [Product] = []
 
     //MARK: - Initializers
@@ -56,10 +55,6 @@ class HomeViewController: BaseViewController {
         ])
     }
     override func bindViews() {
-//        viewModel.fetchAllRockets { state in
-//            self.renderView(state: state)
-//        }
-        
         viewModel.fetchAllProducts { state in
             self.renderView(state: state)
         }
@@ -83,15 +78,11 @@ class HomeViewController: BaseViewController {
     }
     func renderView(state: HomeScreenViewModelStates) {
         switch state {
-            //case .ListOfRockets(let list):
-                //self.listOfRockets = list
-                //tableView.reloadData()
             case .Failure(let error):
-            self.showSingleButtonError(title: "Error", errorText: error, errorButtonTitle: "OK")
-            
+                self.showSingleButtonError(title: "Error", errorText: error, errorButtonTitle: "OK")
             case .ListOfProducts(let list):
-            self.listOfProducts = list
-            tableView.reloadData()
+                self.listOfProducts = list
+                tableView.reloadData()
         }
     }
 }
@@ -99,19 +90,16 @@ class HomeViewController: BaseViewController {
 //MARK: - UITableView Delegate & Datasource
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return listOfRockets.count
         return listOfProducts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier) as! HomeTableViewCell
-        //cell.option = listOfRockets[indexPath.row]
         cell.option = listOfProducts[indexPath.row]
 
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //self.router?.navigateToDetailController(withRocket: listOfRockets[indexPath.row])
         self.router?.navigateToDetailController(withProduct: listOfProducts[indexPath.row])
 
     }

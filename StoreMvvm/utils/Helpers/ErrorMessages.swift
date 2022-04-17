@@ -8,7 +8,7 @@
 import Foundation
 
 enum ErrorMessages: String {
-    case ErrorFetchingRocketList = "Error occured while fetching rockets"
+    case ErrorFetchingProductList = "Error occured while fetching Products"
     case GenericError = "Some error occured"
     case Error = "Error"
     case OK = "Ok"

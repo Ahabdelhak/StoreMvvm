@@ -33,7 +33,7 @@ extension StoreEndpoints: URLConvertible {
             return URL(string: "\(StoreAPI.baseURL)\(endPoint)")
             
         case .getProductDetails(let productId):
-            let endPoint = "/rockets/\(productId)"
+            let endPoint = "/products/\(productId)"
             return URL(string: "\(StoreAPI.baseURL)\(endPoint)")
         
         }

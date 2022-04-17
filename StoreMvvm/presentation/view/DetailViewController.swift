@@ -33,7 +33,7 @@ class DetailViewController: BaseViewController {
         label.textColor = UIColor(red: 105/255, green: 105/255, blue: 105/255, alpha: 1.0)
         return label
     }()
-    let upcomingLaunchButton: UIButton = {
+    let priceButton: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Get Product Price", for: .normal)
@@ -69,7 +69,7 @@ class DetailViewController: BaseViewController {
         view.addSubview(headingLabel)
         view.addSubview(imageView)
         view.addSubview(detailLabel)
-        view.addSubview(upcomingLaunchButton)
+        view.addSubview(priceButton)
         
         NSLayoutConstraint.activate([
         
@@ -85,10 +85,10 @@ class DetailViewController: BaseViewController {
             detailLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
             detailLabel.topAnchor.constraint(equalTo: headingLabel.bottomAnchor, constant: 15),
             
-            upcomingLaunchButton.leadingAnchor.constraint(equalTo: detailLabel.leadingAnchor),
-            upcomingLaunchButton.trailingAnchor.constraint(equalTo: detailLabel.trailingAnchor),
-            upcomingLaunchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
-            upcomingLaunchButton.heightAnchor.constraint(equalToConstant: 50)
+            priceButton.leadingAnchor.constraint(equalTo: detailLabel.leadingAnchor),
+            priceButton.trailingAnchor.constraint(equalTo: detailLabel.trailingAnchor),
+            priceButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            priceButton.heightAnchor.constraint(equalToConstant: 50)
         
         ])
     }
