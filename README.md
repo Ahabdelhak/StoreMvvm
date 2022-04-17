@@ -2,7 +2,7 @@
 IOS Sample implemented with Clean Architecture - Swift, MVVM, Use cases. (Can be used as starter project). 
 
 ## Layers
-* **Domain Layer** = Entities + Use Cases + Repositories Interfaces
+* **Domain Layer** = Entities + Use Cases + Repositories Protocol
 * **Data Repositories Layer** = Repositories Implementations + API (Network) + Persistence DB(not exist in this sample)
 * **Presentation Layer (MVVM)** = ViewModels + Views
 
